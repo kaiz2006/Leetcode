@@ -7,6 +7,11 @@ public:
             mini=min(mini,nums[i]);
         }
 
-        return gcd(maxi,mini);
+        for(int i  = mini;i>=1;i--){
+            if(maxi%i == 0 && mini%i == 0){
+                return i;
+            }
+        }
+        return  0;
     }
 };
