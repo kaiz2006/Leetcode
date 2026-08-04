@@ -1,26 +1,17 @@
 class Solution {
 public:
+    int fib(int n) {
+        if (n == 0) return 0;
+        if (n == 1) return 1;
 
-    int solve(int n,vector<int> &dp) {
+        int prev2 = 0;
+        int prev1 = 1;
+        for(int i =2;i<=n;i++){
+            int curr = prev1+prev2;
 
-        
-
-        if ( n == 0 || n == 1){
-            return n;
+            prev2 = prev1;
+            prev1=curr;
         }
-        if(dp[n]!= -1){
-            return dp[n];
-        }
-        dp[n]= fib(n-1) + fib(n-2);
-        return dp[n];
+        return prev1;
     }
-
-    int fib(int n){
-        vector<int> dp(n+1,-1);
-        return solve(n,dp);
-    }
-
-
-    
-
 };
